@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Cashback</string>
+    <string name="welcome_message">Welcome to our cashback application</string>
+    <string name="cash_back_button">Cash Back</string>
+    <string name="more_information">More Information</string>
+    <string name="name">Name</string>
+    <string name="enter_your_name_here">Enter your name here</string>
+    <string name="enter_the_code">Enter the code</string>
+    <string name="enter_your_correct_phone_number_here">Enter your correct phone number here</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="serial_number">Serial Number</string>
+    <string name="code">Code</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+</resources>

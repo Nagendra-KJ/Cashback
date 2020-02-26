@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "447395359912",
+    "firebase_url": "https://dummydb-c9694.firebaseio.com",
+    "project_id": "dummydb-c9694",
+    "storage_bucket": "dummydb-c9694.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447395359912:android:9281495707e262021d669d",
+        "android_client_info": {
+          "package_name": "com.my.mycashback"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447395359912-3nq181vuc1cnnuolcpm3fjfvlnuhcfpm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.my.mycashback",
+            "certificate_hash": "3321cf24a87a59ad7d0456f9996938b7c575a2f7"
+          }
+        },
+        {
+          "client_id": "447395359912-vbivg4q4p0t6djd5gft27ctppr8a7vc9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMu33sbm5FSqm3avVr9Q2Qa1cSu1gQNtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447395359912-vbivg4q4p0t6djd5gft27ctppr8a7vc9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
