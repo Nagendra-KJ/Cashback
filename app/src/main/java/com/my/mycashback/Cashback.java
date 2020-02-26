@@ -73,12 +73,36 @@ public class Cashback extends AppCompatActivity {
     }
     boolean validate()
     {
-        String phoneNumber=this.phoneNumber.getText().toString();
-        if(phoneNumber.length()!=10)
+        boolean valid=true;
+        if(name.getText().toString().isEmpty())
         {
-            Toast.makeText(this, "Enter a valid phone number", Toast.LENGTH_SHORT).show();
-            return false;
+            name.setError("Please enter a valid name");
+            valid=false;
         }
-        return true;
+        else {
+            name.setError(null);
+        }
+        if(code.getText().toString().isEmpty())
+        {
+            code.setError("Please enter a valid code");
+            valid=false;
+        }
+        else
+            code.setError(null);
+        if(serialNumber.getText().toString().isEmpty())
+        {
+            serialNumber.setError("Please enter a valid serial number");
+            valid=false;
+        }
+        else
+            serialNumber.setError(null);
+        if(phoneNumber.getText().toString().length()!=10 || phoneNumber.getText().toString().isEmpty() )
+        {
+            phoneNumber.setError("Please enter a valid phone number");
+            valid=false;
+        }
+        else
+            phoneNumber.setError(null);
+        return valid;
     }
 }

@@ -1,7 +1,7 @@
 package com.my.mycashback;
 
 public class User {
-    private String name,phoneNumber,code;
+    private String name,phoneNumber,code,institution,profession;
     User(String name,String phoneNumber,String code)
     {
         this.name=name;
