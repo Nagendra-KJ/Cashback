@@ -14,8 +14,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.File;
@@ -89,8 +91,14 @@ public class Cashback extends AppCompatActivity {
         {
             User user = new User(name.getText().toString(), phoneNumber.getText().toString(), Integer.valueOf(code.getText().toString() + serialNumber.getText().toString()));
             user.setUserId(UUID.randomUUID().toString());
-            db.collection("Users").document(user.getUserId()).set(user);
             Toast.makeText(this, "Submitting to database", Toast.LENGTH_SHORT).show();
+            db.collection("Users").document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Intent intent = new Intent(Cashback.this, ScratchCard.class);
+                    startActivity(intent);
+                }
+            });
         }
 
     }
@@ -195,4 +203,5 @@ public class Cashback extends AppCompatActivity {
         }
         profilePicture.setImageURI(profilePhotoUri);
     }
+
 }
