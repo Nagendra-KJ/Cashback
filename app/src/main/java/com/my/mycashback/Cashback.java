@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Cashback extends AppCompatActivity {
     Button submitButton,cancelButton;
+    EditText name,phoneNumber,code,serialNumber;
     FirebaseFirestore db;
 
     @Override
@@ -22,6 +24,10 @@ public class Cashback extends AppCompatActivity {
         setContentView(R.layout.activity_cashback);
         submitButton = findViewById(R.id.buttonSubmit);
         cancelButton = findViewById(R.id.buttonCancel);
+        name=findViewById(R.id.name);
+        phoneNumber=findViewById(R.id.phoneNumber);
+        code=findViewById(R.id.code);
+        serialNumber=findViewById(R.id.serialNumber);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +65,8 @@ public class Cashback extends AppCompatActivity {
     }
     void submit()
     {
-        db.collection("User").add("Dummy");
+        User user = new User(name.getText().toString(),phoneNumber.getText().toString(),code.getText().toString()+serialNumber.getText().toString());
+        db.collection("User").add(user);
         Toast.makeText(this, "Submitting to database", Toast.LENGTH_SHORT).show();
     }
 }
