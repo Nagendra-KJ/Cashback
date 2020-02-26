@@ -1,8 +1,11 @@
 package com.my.mycashback;
 
+
+
 public class User {
-    private String name,phoneNumber,code,institution,profession;
-    User(String name,String phoneNumber,String code)
+    private String name,phoneNumber,userId;
+    private int code;
+    User(String name,String phoneNumber,int code)
     {
         this.name=name;
         this.phoneNumber=phoneNumber;
@@ -17,7 +20,7 @@ public class User {
         return phoneNumber;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
@@ -29,7 +32,18 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
+
+    String getUserId()
+    {
+        return userId;
+    }
+
+    void setUserId(String userId)
+    {
+        this.userId = userId;
+    }
+
 }

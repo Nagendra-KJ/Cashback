@@ -68,7 +68,8 @@
                     android:hint="@string/code"
                     android:layout_margin="15dp"
                     android:textSize="25sp"
-                    android:id="@+id/code"/>
+                    android:id="@+id/code"
+                    android:inputType="number"/>
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +77,8 @@
                     android:hint="@string/serial_number"
                     android:layout_margin="15dp"
                     android:textSize="25sp"
-                    android:id="@+id/serialNumber"/>
+                    android:id="@+id/serialNumber"
+                    android:inputType="number"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -103,6 +105,14 @@
                     android:id="@+id/buttonCancel"
                     android:layout_margin="15dp"/>
             </LinearLayout>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/default_dp"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:id="@+id/profilePicture"/>
+
 
         </LinearLayout>
     </RelativeLayout>
