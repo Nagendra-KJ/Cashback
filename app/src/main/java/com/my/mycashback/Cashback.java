@@ -65,8 +65,20 @@ public class Cashback extends AppCompatActivity {
     }
     void submit()
     {
-        User user = new User(name.getText().toString(),phoneNumber.getText().toString(),code.getText().toString()+serialNumber.getText().toString());
-        db.collection("User").add(user);
-        Toast.makeText(this, "Submitting to database", Toast.LENGTH_SHORT).show();
+        if(validate()) {
+            User user = new User(name.getText().toString(), phoneNumber.getText().toString(), code.getText().toString() + serialNumber.getText().toString());
+            db.collection("User").add(user);
+            Toast.makeText(this, "Submitting to database", Toast.LENGTH_SHORT).show();
+        }
+    }
+    boolean validate()
+    {
+        String phoneNumber=this.phoneNumber.getText().toString();
+        if(phoneNumber.length()!=10)
+        {
+            Toast.makeText(this, "Enter a valid phone number", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }
