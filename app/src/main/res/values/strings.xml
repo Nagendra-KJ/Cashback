@@ -13,4 +13,9 @@
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
     <string name="cashback">XX</string>
+    <string name="paytm">Paytm</string>
+    <string name="phone_pe">Phone Pe</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="cashbackLabel">How would you like to receive your cash back</string>
+    <string name="xx">XX</string>
 </resources>

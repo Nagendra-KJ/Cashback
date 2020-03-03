@@ -14,7 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ScrollView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,6 +33,9 @@ public class Cashback extends AppCompatActivity {
     int REQUEST_IMAGE_GALLERY = 1;
     int REQUEST_IMAGE_CAPTURE = 2;
     Uri profilePhotoUri;
+    RadioGroup cashbackOption;
+    RadioButton selectedOption;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,10 @@ public class Cashback extends AppCompatActivity {
             }
         });
         db=FirebaseFirestore.getInstance();
+        cashbackOption = findViewById(R.id.cashbackOption);
+        int option=cashbackOption.getCheckedRadioButtonId();
+        selectedOption = findViewById(option);
+
     }
 
     void cancel()
@@ -89,13 +97,14 @@ public class Cashback extends AppCompatActivity {
     {
         if(validate())
         {
-            User user = new User(name.getText().toString(), phoneNumber.getText().toString(), Integer.valueOf(code.getText().toString() + serialNumber.getText().toString()));
+            user = new User(name.getText().toString(), phoneNumber.getText().toString(), Integer.parseInt(code.getText().toString() + serialNumber.getText().toString()),selectedOption.getText().toString());
             user.setUserId(UUID.randomUUID().toString());
             Toast.makeText(this, "Submitting to database", Toast.LENGTH_SHORT).show();
             db.collection("Users").document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Intent intent = new Intent(Cashback.this, ScratchCard.class);
+                    intent.putExtra("USER_ID",user.getUserId());
                     startActivity(intent);
                 }
             });

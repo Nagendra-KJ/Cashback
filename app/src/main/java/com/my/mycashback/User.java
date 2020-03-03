@@ -3,13 +3,15 @@ package com.my.mycashback;
 
 
 public class User {
-    private String name,phoneNumber,userId;
-    private int code;
-    User(String name,String phoneNumber,int code)
+    private String name,phoneNumber,userId,paymentOption;
+    private int code,cashbackAmount;
+    User(String name,String phoneNumber,int code,String paymentOption)
     {
         this.name=name;
         this.phoneNumber=phoneNumber;
         this.code=code;
+        this.paymentOption=paymentOption;
+        this.cashbackAmount=0;
     }
 
     public String getName() {
@@ -44,6 +46,14 @@ public class User {
     void setUserId(String userId)
     {
         this.userId = userId;
+    }
+
+    public String getPaymentOption()
+    {return paymentOption;}
+
+    public  int getCashbackAmount()
+    {
+        return cashbackAmount;
     }
 
 }
