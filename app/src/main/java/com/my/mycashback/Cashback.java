@@ -1,5 +1,6 @@
 package com.my.mycashback;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
@@ -18,8 +19,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.util.Date;
@@ -36,7 +45,7 @@ public class Cashback extends AppCompatActivity {
     RadioGroup cashbackOption;
     RadioButton selectedOption;
     User user;
-
+    StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +55,7 @@ public class Cashback extends AppCompatActivity {
         profilePicture = findViewById(R.id.profilePicture);
         name=findViewById(R.id.name);
         phoneNumber=findViewById(R.id.phoneNumber);
+        storageReference = FirebaseStorage.getInstance().getReference();
         code=findViewById(R.id.code);
         serialNumber=findViewById(R.id.serialNumber);
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +118,16 @@ public class Cashback extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+            if(profilePhotoUri!=null)
+            {
+                StorageReference dpRef = storageReference.child("Images/"+user.getUserId());
+                dpRef.putFile(profilePhotoUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(Cashback.this, "DP uploaded successfully", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
         }
 
     }
